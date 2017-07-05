@@ -1,0 +1,3 @@
+rootProject.name = 'pd_tracker'
+
+include ':app'
