@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import { View, Text, Image, StyleSheet } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import firebase from 'firebase';
 import ReduxThunk from 'redux-thunk';
 import reducers from './reducers';
 import Router from './Router';
+import BottomCard from './components/BottomCard';
+import Background from './components/Background';
 
 class App extends Component {
 
@@ -19,15 +22,19 @@ class App extends Component {
    };
    firebase.initializeApp(config);
 }
-
   render() {
-    const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
+    const store = createStore(reducers);
     return (
       <Provider store={store}>
-        <Router />
+        <Background>
+          <BottomCard>
+            <Text>This is a test</Text>
+          </BottomCard>
+        </Background>
       </Provider>
     );
   }
 }
+
 
 export default App;
