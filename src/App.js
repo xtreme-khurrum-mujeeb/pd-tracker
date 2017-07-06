@@ -8,6 +8,7 @@ import reducers from './reducers';
 import Router from './Router';
 import BottomCard from './components/BottomCard';
 import Background from './components/Background';
+import LoginForm from './components/LoginForm';
 
 class App extends Component {
 
@@ -28,7 +29,7 @@ class App extends Component {
       <Provider store={store}>
         <Background>
           <BottomCard>
-            <Text>This is a test</Text>
+            <LoginForm />
           </BottomCard>
         </Background>
       </Provider>
