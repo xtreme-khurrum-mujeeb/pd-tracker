@@ -27,7 +27,7 @@ class App extends Component {
     const store = createStore(reducers);
     return (
       <Provider store={store}>
-          <LoginForm />
+        <LoginForm />
       </Provider>
     );
   }
