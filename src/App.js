@@ -27,11 +27,7 @@ class App extends Component {
     const store = createStore(reducers);
     return (
       <Provider store={store}>
-        <Background>
-          <BottomCard>
-            <LoginForm />
-          </BottomCard>
-        </Background>
+          <LoginForm />
       </Provider>
     );
   }
