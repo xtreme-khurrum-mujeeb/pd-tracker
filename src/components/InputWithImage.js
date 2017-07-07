@@ -32,6 +32,7 @@ const {
           onChangeText={onChangeText}
           placeholderTextColor="#F3EFEF"
           underlineColorAndroid='transparent'
+          returnKeyType='next'
         />
 
     </View>
