@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Image } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 
 const BottomCard = (props) => {
   return (
       <View style={styles.containerStyle}>
-
         <View style={styles.boxStyle}>
           {props.children}
         </View>
@@ -14,14 +13,14 @@ const BottomCard = (props) => {
 
 const styles = StyleSheet.create({
   containerStyle: {
-    flex: 1,
+    flex: 0.5,
     flexDirection: 'column',
     justifyContent: 'flex-end',
     },
   boxStyle: {
     backgroundColor: 'rgba(3,100,87,0.60)',
     width: '100%',
-    height: '50%'
+    height: '100%'
   }
 });
 

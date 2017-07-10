@@ -13,7 +13,7 @@ const Background = (props) => {
   };
   const styles = StyleSheet.create({
       backgroundStyle: {
-      flex: 1,
+      flex: 0.5,
       width: null,
       height: null
     }

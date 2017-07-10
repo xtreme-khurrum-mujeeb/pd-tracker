@@ -6,9 +6,9 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-const LargeButton = ({ name }) => {
+const LargeButton = ({ onPress, name }) => {
   return (
-    <TouchableOpacity activeOpacity={0.5}>
+    <TouchableOpacity onPress={onPress} activeOpacity={0.5}>
       <View style={styles.button}>
         <Text style={styles.buttonText}> {name}</Text>
       </View>

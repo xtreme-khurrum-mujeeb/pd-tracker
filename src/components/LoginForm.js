@@ -5,42 +5,72 @@ import {
    ScrollView,
    Platform
  } from 'react-native';
+import { connect } from 'react-redux';
+import {
+  emailChanged,
+  passwordChanged,
+  loginUser,
+  registerUser
+ } from '../actions';
+import TopCard from './TopCard';
 import BottomCard from './BottomCard';
 import Background from './Background';
 import InputWithImage from './InputWithImage';
 import LargeButton from './LargeButton';
 
+const userIcon = require('../assets/images/user.png');
+const passwordIcon = require('../assets/images/padlock.png');
+
 class LoginForm extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = { text: '' };
+  onEmailChange(text) {
+    this.props.emailChanged(text);
+  }
+
+  onPasswordChange(text) {
+    this.props.passwordChanged(text);
+  }
+
+  onLoginPress() {
+    const { email, password } = this.props;
+
+    this.props.loginUser({ email, password });
+  }
+
+  onRegisterPress() {
+    const { email, password } = this.props;
+
+    this.props.registerUser({ email, password });
   }
 
   loginView() {
-    const userIcon = require('../assets/images/user.png');
-    const passwordIcon = require('../assets/images/padlock.png');
-
     return (
-    <View style={styles.container}>
-      <View style={styles.wrapper}>
-           <InputWithImage
-             onChangeText={(text) => this.setState({ text })}
-             value={this.state.text}
-             placeholder="Username"
-             imageSource={userIcon}
+      <View style={styles.container}>
+        <View style={styles.wrapper}>
+             <InputWithImage
+               onChangeText={this.onEmailChange.bind(this)}
+               value={this.props.email}
+               placeholder="Username"
+               imageSource={userIcon}
+             />
+             <InputWithImage
+               secureTextEntry
+               onChangeText={this.onPasswordChange.bind(this)}
+               value={this.props.password}
+               placeholder="Password"
+               imageSource={passwordIcon}
+               defaultValue="test123"
+             />
+           <LargeButton
+             name='Sign In'
+             onPress={this.onLoginPress.bind(this)}
            />
-           <InputWithImage
-             secureTextEntry
-             onChangeText={(text) => this.setState({ text })}
-             value={this.state.text}
-             placeholder="Password"
-             imageSource={passwordIcon}
+           <LargeButton
+             name='Register'
+             onPress={this.onRegisterPress.bind(this)}
            />
-         <LargeButton name='Sign In' />
-         <LargeButton name='Register' />
+       </View>
      </View>
-   </View>
   );
 }
 
@@ -60,6 +90,7 @@ class LoginForm extends Component {
   render() {
     return (
        <Background>
+         <TopCard />
          <BottomCard>
            {this.renderLoginView()}
         </BottomCard>
@@ -80,4 +111,16 @@ const styles = StyleSheet.create({
 
 });
 
-export default LoginForm;
+const mapStateToProps = state => {
+  return {
+    email: state.auth.email,
+    password: state.auth.password
+  };
+};
+
+export default connect(mapStateToProps, {
+  emailChanged,
+  passwordChanged,
+  loginUser,
+  registerUser
+})(LoginForm);

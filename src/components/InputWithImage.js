@@ -6,7 +6,13 @@ import {
   StyleSheet
  } from 'react-native';
 
-const InputWithImage = ({ value, onChangeText, placeholder, secureTextEntry, imageSource }) => {
+const InputWithImage = ({
+  value,
+  onChangeText,
+  placeholder,
+  secureTextEntry,
+  imageSource
+}) => {
 const {
     input,
     inputWrap,
@@ -32,7 +38,6 @@ const {
           onChangeText={onChangeText}
           placeholderTextColor="#F3EFEF"
           underlineColorAndroid='transparent'
-          returnKeyType='next'
         />
 
     </View>
