@@ -18,6 +18,7 @@ import Background from './Background';
 import InputWithImage from './InputWithImage';
 import LargeButton from './LargeButton';
 import ErrorMessage from './ErrorMessage';
+import Spinner from './Spinner';
 
 const userIcon = require('../assets/images/user.png');
 const passwordIcon = require('../assets/images/padlock.png');
@@ -36,7 +37,7 @@ class LoginForm extends Component {
     const { email, password } = this.props;
 
     Keyboard.dismiss();
-    
+
     this.props.loginUser({ email, password });
   }
 
@@ -54,10 +55,19 @@ class LoginForm extends Component {
     }
   }
 
+  displaySpinner() {
+    if (this.props.loading) {
+      return (
+        <Spinner />
+      );
+    }
+  }
+
   renderLoginView() {
     return (
       <View style={styles.container}>
         {this.displayErrorMessage()}
+        {this.displaySpinner()}
         <View style={styles.wrapper}>
              <InputWithImage
                onChangeText={this.onEmailChange.bind(this)}
@@ -133,7 +143,8 @@ const mapStateToProps = state => {
   return {
     email: state.auth.email,
     password: state.auth.password,
-    error: state.auth.error
+    error: state.auth.error,
+    loading: state.auth.loading
   };
 };
 
