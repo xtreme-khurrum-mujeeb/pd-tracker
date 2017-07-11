@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import {
    View,
    StyleSheet,
-   ScrollView,
-   Platform
+   Image,
+   Keyboard
  } from 'react-native';
 import { connect } from 'react-redux';
 import {
@@ -17,6 +17,7 @@ import BottomCard from './BottomCard';
 import Background from './Background';
 import InputWithImage from './InputWithImage';
 import LargeButton from './LargeButton';
+import ErrorMessage from './ErrorMessage';
 
 const userIcon = require('../assets/images/user.png');
 const passwordIcon = require('../assets/images/padlock.png');
@@ -34,6 +35,8 @@ class LoginForm extends Component {
   onLoginPress() {
     const { email, password } = this.props;
 
+    Keyboard.dismiss();
+    
     this.props.loginUser({ email, password });
   }
 
@@ -43,9 +46,18 @@ class LoginForm extends Component {
     this.props.registerUser({ email, password });
   }
 
-  loginView() {
+  displayErrorMessage() {
+    if (this.props.error) {
+      return (
+        <ErrorMessage message="Invalid username or password" />
+      );
+    }
+  }
+
+  renderLoginView() {
     return (
       <View style={styles.container}>
+        {this.displayErrorMessage()}
         <View style={styles.wrapper}>
              <InputWithImage
                onChangeText={this.onEmailChange.bind(this)}
@@ -74,23 +86,17 @@ class LoginForm extends Component {
   );
 }
 
-  renderLoginView() {
-    if (Platform.OS === 'ios') {
-      return (
-        this.loginView()
-     );
-  }
-    return (
-      <ScrollView>
-        {this.loginView()}
-     </ScrollView>
-   );
-}
-
   render() {
     return (
        <Background>
-         <TopCard />
+         <TopCard>
+           <View style={styles.topImageContainer}>
+             <Image
+             source={require('../assets/images/Oval.png')}
+             style={styles.topImageStyle}
+             />
+          </View>
+        </TopCard>
          <BottomCard>
            {this.renderLoginView()}
         </BottomCard>
@@ -103,18 +109,31 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       flexDirection: 'column',
-      justifyContent: 'center',
+      justifyContent: 'center'
     },
     wrapper: {
-      paddingHorizontal: 50
+      flex: 1,
+      paddingHorizontal: 50,
     },
+    topImageContainer: {
+      flex: 1,
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    topImageStyle: {
+      width: 165,
+      height: 165,
+      resizeMode: 'contain',
+  }
 
 });
 
 const mapStateToProps = state => {
   return {
     email: state.auth.email,
-    password: state.auth.password
+    password: state.auth.password,
+    error: state.auth.error
   };
 };
 

@@ -3,7 +3,7 @@ import {
   TextInput,
   View,
   Image,
-  StyleSheet
+  StyleSheet,
  } from 'react-native';
 
 const InputWithImage = ({

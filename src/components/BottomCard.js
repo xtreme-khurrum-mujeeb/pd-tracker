@@ -13,14 +13,11 @@ const BottomCard = (props) => {
 
 const styles = StyleSheet.create({
   containerStyle: {
-    flex: 0.5,
-    flexDirection: 'column',
-    justifyContent: 'flex-end',
+    flex: 0.5
     },
   boxStyle: {
     backgroundColor: 'rgba(3,100,87,0.60)',
-    width: '100%',
-    height: '100%'
+    flex: 1
   }
 });
 
