@@ -1,4 +1,34 @@
 {
-  "extends": "rallycoding"
-
+  "parser": "babel-eslint",
+  "ecmaVersion": 6,
+  "env": {
+    "browser": true,
+    "jest":true,
+    "jest/globals": true,
+    "es6": true
+  },
+  "plugins": [
+    "react",
+    "react-native",
+    "jest"
+  ],
+  "ecmaFeatures": {
+    "jsx": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:jest/recommended",
+    "rallycoding"
+  ],
+  "rules": {
+    "react-native/no-unused-styles": 0,
+    "react-native/split-platform-components": 0,
+    "react-native/no-color-literals": 2,
+    //jest
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "semi": 2,
+  }
 }

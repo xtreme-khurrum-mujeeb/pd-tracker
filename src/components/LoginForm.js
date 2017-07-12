@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
    View,
    StyleSheet,
@@ -12,6 +13,7 @@ import {
   loginUser,
   registerUser
  } from '../actions';
+
 import TopCard from './TopCard';
 import BottomCard from './BottomCard';
 import Background from './Background';
@@ -24,6 +26,17 @@ const userIcon = require('../assets/images/user.png');
 const passwordIcon = require('../assets/images/padlock.png');
 
 class LoginForm extends Component {
+
+  static propTypes = {
+    emailChanged: PropTypes.func,
+    passwordChanged: PropTypes.func,
+    loginUser: PropTypes.func,
+    registerUser: PropTypes.func,
+    email: PropTypes.string,
+    password: PropTypes.string,
+    error: PropTypes.bool,
+    loading: PropTypes.bool
+  };
 
   onEmailChange(text) {
     this.props.emailChanged(text);
