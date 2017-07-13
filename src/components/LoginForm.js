@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import {
    View,
    StyleSheet,
    Image,
    Keyboard
  } from 'react-native';
-import { connect } from 'react-redux';
 import {
   emailChanged,
   passwordChanged,
@@ -15,6 +15,7 @@ import {
  } from '../actions';
 
 import TopCard from './TopCard';
+import strings from '../strings';
 import BottomCard from './BottomCard';
 import Background from './Background';
 import InputWithImage from './InputWithImage';
@@ -25,7 +26,7 @@ import Spinner from './Spinner';
 const userIcon = require('../assets/images/user.png');
 const passwordIcon = require('../assets/images/padlock.png');
 
-class LoginForm extends Component {
+export class LoginForm extends Component {
 
   static propTypes = {
     emailChanged: PropTypes.func,
@@ -63,7 +64,7 @@ class LoginForm extends Component {
   displayErrorMessage() {
     if (this.props.error) {
       return (
-        <ErrorMessage message="Invalid username or password" />
+        <ErrorMessage message={strings.invalidCredentials} />
       );
     }
   }

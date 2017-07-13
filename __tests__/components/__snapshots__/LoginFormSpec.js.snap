@@ -1,0 +1,288 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the LoginForm 1`] = `
+<Image
+  source={1}
+  style={
+    Object {
+      "flex": 0.5,
+      "height": null,
+      "width": null,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 0.5,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "column",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Image
+        source={1}
+        style={
+          Object {
+            "height": 165,
+            "resizeMode": "contain",
+            "width": 165,
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 0.5,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "rgba(3,100,87,0.60)",
+          "flex": 1,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "flexDirection": "column",
+            "justifyContent": "center",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "flex": 1,
+              "paddingHorizontal": 50,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "transparent",
+                "flexDirection": "row",
+                "height": 40,
+                "marginVertical": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "paddingHorizontal": 7,
+                }
+              }
+            >
+              <Image
+                resizeMode="contain"
+                source={1}
+                style={
+                  Object {
+                    "height": 21,
+                    "width": 21,
+                  }
+                }
+              />
+            </View>
+            <TextInput
+              autoCorrect={false}
+              onChangeText={[Function]}
+              placeholder="Username"
+              placeholderTextColor="#F3EFEF"
+              secureTextEntry={undefined}
+              style={
+                Object {
+                  "borderBottomColor": "white",
+                  "borderBottomWidth": 1,
+                  "color": "white",
+                  "flex": 1,
+                  "fontFamily": "Avenir Next",
+                  "fontSize": 20,
+                  "paddingHorizontal": 10,
+                }
+              }
+              underlineColorAndroid="transparent"
+              value="test@email.ca"
+            />
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "transparent",
+                "flexDirection": "row",
+                "height": 40,
+                "marginVertical": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "paddingHorizontal": 7,
+                }
+              }
+            >
+              <Image
+                resizeMode="contain"
+                source={1}
+                style={
+                  Object {
+                    "height": 21,
+                    "width": 21,
+                  }
+                }
+              />
+            </View>
+            <TextInput
+              autoCorrect={false}
+              onChangeText={[Function]}
+              placeholder="Password"
+              placeholderTextColor="#F3EFEF"
+              secureTextEntry={true}
+              style={
+                Object {
+                  "borderBottomColor": "white",
+                  "borderBottomWidth": 1,
+                  "color": "white",
+                  "flex": 1,
+                  "fontFamily": "Avenir Next",
+                  "fontSize": 20,
+                  "paddingHorizontal": 10,
+                }
+              }
+              underlineColorAndroid="transparent"
+              value="password123"
+            />
+          </View>
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            collapsable={undefined}
+            hitSlop={undefined}
+            isTVSelectable={true}
+            nativeID={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID={undefined}
+            tvParallaxProperties={undefined}
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#FFF",
+                  "borderRadius": 5,
+                  "marginVertical": 10,
+                  "paddingVertical": 8,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                disabled={false}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "color": "#008774",
+                    "fontFamily": "Avenir Next",
+                    "fontSize": 20,
+                  }
+                }
+              >
+                 
+                Sign In
+              </Text>
+            </View>
+          </View>
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            collapsable={undefined}
+            hitSlop={undefined}
+            isTVSelectable={true}
+            nativeID={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID={undefined}
+            tvParallaxProperties={undefined}
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#FFF",
+                  "borderRadius": 5,
+                  "marginVertical": 10,
+                  "paddingVertical": 8,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                disabled={false}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "color": "#008774",
+                    "fontFamily": "Avenir Next",
+                    "fontSize": 20,
+                  }
+                }
+              >
+                 
+                Register
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</Image>
+`;

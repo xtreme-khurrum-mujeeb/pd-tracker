@@ -56,11 +56,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
  },
- iconStyle: {
+  iconStyle: {
      height: 21,
      width: 21
  },
- input: {
+  input: {
    flex: 1,
    paddingHorizontal: 10,
    borderBottomWidth: 1,
