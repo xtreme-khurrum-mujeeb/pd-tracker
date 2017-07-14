@@ -38,7 +38,7 @@ export class LoginForm extends Component {
     error: PropTypes.bool,
     loading: PropTypes.bool
   };
-
+  
   onEmailChange(text) {
     this.props.emailChanged(text);
   }
