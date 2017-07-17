@@ -4,7 +4,7 @@ import { View, StyleSheet, Image } from 'react-native';
 const Background = (props) => {
   return (
     <Image
-      source={require('../assets/images/Background.png')}
+      source={require('../../assets/images/Background.png')}
       style={styles.backgroundStyle}
     >
       {props.children}
@@ -13,11 +13,11 @@ const Background = (props) => {
   };
   const styles = StyleSheet.create({
       backgroundStyle: {
-      flex: 1,
+      flex: 0.5,
       width: null,
       height: null
     }
   });
 
 
-export default Background;
+export { Background };

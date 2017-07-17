@@ -3,10 +3,16 @@ import {
   TextInput,
   View,
   Image,
-  StyleSheet
+  StyleSheet,
  } from 'react-native';
 
-const InputWithImage = ({ value, onChangeText, placeholder, secureTextEntry, imageSource }) => {
+const InputWithImage = ({
+  value,
+  onChangeText,
+  placeholder,
+  secureTextEntry,
+  imageSource
+}) => {
 const {
     input,
     inputWrap,
@@ -50,11 +56,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
  },
- iconStyle: {
+  iconStyle: {
      height: 21,
      width: 21
  },
- input: {
+  input: {
    flex: 1,
    paddingHorizontal: 10,
    borderBottomWidth: 1,
@@ -65,4 +71,4 @@ const styles = StyleSheet.create({
  },
 });
 
-export default InputWithImage;
+export { InputWithImage };
