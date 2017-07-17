@@ -2,7 +2,7 @@ import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
-import LargeButton from '../../src/components/LargeButton';
+import { LargeButton } from '../../src/components/common';
 
 describe('LargeButton', () => {
   let onPress;

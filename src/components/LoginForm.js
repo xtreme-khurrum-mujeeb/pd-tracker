@@ -7,6 +7,7 @@ import {
    Image,
    Keyboard
  } from 'react-native';
+
 import {
   emailChanged,
   passwordChanged,
@@ -14,14 +15,17 @@ import {
   registerUser
  } from '../actions';
 
-import TopCard from './TopCard';
+import {
+   TopCard,
+   BottomCard,
+   Background,
+   InputWithImage,
+   LargeButton,
+   ErrorMessage,
+   Spinner
+  } from './common';
+
 import strings from '../strings';
-import BottomCard from './BottomCard';
-import Background from './Background';
-import InputWithImage from './InputWithImage';
-import LargeButton from './LargeButton';
-import ErrorMessage from './ErrorMessage';
-import Spinner from './Spinner';
 
 const userIcon = require('../assets/images/user.png');
 const passwordIcon = require('../assets/images/padlock.png');
@@ -38,7 +42,7 @@ export class LoginForm extends Component {
     error: PropTypes.bool,
     loading: PropTypes.bool
   };
-  
+
   onEmailChange(text) {
     this.props.emailChanged(text);
   }

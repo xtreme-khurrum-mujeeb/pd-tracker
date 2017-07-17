@@ -21,4 +21,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default BottomCard;
+export { BottomCard };

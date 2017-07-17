@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 
 const TopCard = (props) => {
   return (
@@ -15,4 +15,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TopCard;
+export { TopCard };

@@ -31,4 +31,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default LargeButton;
+export { LargeButton };

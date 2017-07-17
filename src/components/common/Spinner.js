@@ -16,9 +16,9 @@ const styles = {
   spinnerStyle: {
       flex: 0.20,
       justifyContent: 'center',
-      alignItems:'center'
+      alignItems: 'center'
   }
 };
 
 
-export default Spinner;
+export { Spinner };
