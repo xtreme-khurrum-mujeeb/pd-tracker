@@ -7,7 +7,8 @@ import {
    StyleSheet,
    Image,
    Text,
-   StatusBar
+   StatusBar,
+   TouchableOpacity
  } from 'react-native';
 
 import {
@@ -21,6 +22,7 @@ import {
   } from './common';
 
 import styles from '../styles';
+import colors from '../colors';
 import strings from '../strings';
 
 export class UserSkills extends Component {
@@ -89,18 +91,31 @@ export class UserSkills extends Component {
            <View style={styles.titleContainer}>
              <Text style={styles.titleStyle}> Skills </Text>
            </View>
+             <TouchableOpacity
+               style={localStyles.settingsImageContainer}
+               activeOpacity={0.5}
+             >
+              <Image
+                 source={require('../assets/images/settings.png')}
+                 style={localStyles.settingsImageStyle}
+              />
+            </TouchableOpacity>
            <View style={localStyles.topImageContainer}>
              <Image
              source={require('../assets/images/profile.png')}
              style={localStyles.profileImageStyle}
              />
            <View style={localStyles.currentProjectContainer}>
-             <Text style={localStyles.currentProjectTitleStyle}> Current Project: </Text>
-             <Text style={localStyles.currentProjectStyle}> FordPass - iOS </Text>
+             <Text style={[localStyles.currentProjectTitleStyle, styles.h2]}>
+               Current Project:
+             </Text>
+             <Text style={[localStyles.currentProjectStyle, styles.h3]}>
+                FordPass - iOS
+             </Text>
            </View>
           </View>
         </TopCard>
-         <BottomCard>
+        <BottomCard>
 
         </BottomCard>
       </Background>
@@ -129,6 +144,19 @@ const localStyles = StyleSheet.create({
       height: 165,
       resizeMode: 'contain',
   },
+    settingsImageContainer: {
+      flex: 0.10,
+      width: 25,
+      flexDirection: 'row',
+      justifyContent: 'flex-end',
+      alignSelf: 'flex-end',
+      marginRight: '5%'
+    },
+    settingsImageStyle: {
+      width: 25,
+      height: 25,
+      resizeMode: 'contain',
+    },
     currentProjectContainer: {
       marginTop: 5,
       flexDirection: 'column',
@@ -136,17 +164,12 @@ const localStyles = StyleSheet.create({
       alignItems: 'center'
     },
     currentProjectTitleStyle: {
-      backgroundColor: 'transparent',
-      fontFamily: 'Avenir Next',
-      fontSize: 20,
-      color: '#008774',
-      fontWeight: '500'
+      backgroundColor: colors.transparent,
+      color: colors.text_green
     },
     currentProjectStyle: {
-      backgroundColor: 'transparent',
-      fontFamily: 'Avenir Next',
-      fontSize: 20,
-      color: '#008774'
+      backgroundColor: colors.transparent,
+      color: colors.text_green
     }
 
 });
