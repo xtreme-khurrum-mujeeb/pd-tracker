@@ -4,7 +4,7 @@ import { AppNavigator } from '../navigators/AppNavigator';
 const initialState = {
   index: 0,
   routes: [
-    { key: 'initial', routeName: 'Login' },
+    { key: 'initial', routeName: 'User' },
   ],
 };
 
