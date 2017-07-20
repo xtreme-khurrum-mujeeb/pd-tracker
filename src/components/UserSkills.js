@@ -110,7 +110,7 @@ export class UserSkills extends Component {
                Current Project:
              </Text>
              <Text style={[localStyles.currentProjectStyle, styles.h3]}>
-                FordPass - iOS
+              FordPass - iOS
              </Text>
            </View>
           </View>
