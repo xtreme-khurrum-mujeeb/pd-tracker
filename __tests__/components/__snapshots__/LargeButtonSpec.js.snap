@@ -29,7 +29,7 @@ exports[`LargeButton renders the text 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "backgroundColor": "#FFF",
+        "backgroundColor": "#ffffff",
         "borderRadius": 5,
         "marginVertical": 10,
         "paddingVertical": 8,
@@ -42,11 +42,15 @@ exports[`LargeButton renders the text 1`] = `
       disabled={false}
       ellipsizeMode="tail"
       style={
-        Object {
-          "color": "#008774",
-          "fontFamily": "Avenir Next",
-          "fontSize": 20,
-        }
+        Array [
+          Object {
+            "color": "#008774",
+          },
+          Object {
+            "fontFamily": "Avenir Next",
+            "fontSize": 20,
+          },
+        ]
       }
     >
        
