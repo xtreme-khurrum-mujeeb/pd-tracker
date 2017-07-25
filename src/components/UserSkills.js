@@ -15,12 +15,12 @@ import {
    Background,
    ProfileImage,
    IconButton,
-   Title
+   Title,
+   Pill
   } from './common';
 
 import styles from '../styles';
 import colors from '../colors';
-import strings from '../strings';
 
 export class UserSkills extends Component {
 
@@ -37,16 +37,39 @@ export class UserSkills extends Component {
            <View style={localStyles.topProfileContainer}>
              <ProfileImage source={require('../assets/images/profile.png')} />
              <View style={localStyles.currentProjectContainer}>
-               <Text style={[localStyles.currentProjectTitleStyle, styles.h2]}>
+               <Text style={[localStyles.currentProjectTitle, styles.h2]}>
                  Current Project:
                </Text>
-               <Text style={[localStyles.currentProjectStyle, styles.h3]}>
+               <Text style={[localStyles.currentProject, styles.h3]}>
                 FordPass - iOS
                </Text>
              </View>
           </View>
         </TopCard>
+
         <BottomCard>
+          <View style={localStyles.bottomProfileContainer} >
+            <View style={localStyles.wrapper} >
+              <View style={{ flex: 0.5 }}>
+                <Text style={[styles.h1, localStyles.skillSectionTitle]}> Desired Skills </Text>
+                <View style={localStyles.skillsContainer}>
+                  <Pill> iOS </Pill>
+                  <Pill> Javascript </Pill>
+                  <Pill> Consulting </Pill>
+                  <Pill> React Native </Pill>
+                  <Pill> Angular JS </Pill>
+                </View>
+              </View>
+              <View style={{ flex: 0.5 }}>
+                <Text style={[styles.h1, localStyles.skillSectionTitle]}> Current Skills </Text>
+                  <View style={localStyles.skillsContainer}>
+                    <Pill> iOS </Pill>
+                    <Pill> Exploratory Testing </Pill>
+                    <Pill> EarlGrey  </Pill>
+                  </View>
+              </View>
+            </View>
+          </View>
 
         </BottomCard>
       </Background>
@@ -67,13 +90,31 @@ const localStyles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center'
     },
-    currentProjectTitleStyle: {
+    currentProjectTitle: {
       backgroundColor: colors.transparent,
       color: colors.text_green
     },
-    currentProjectStyle: {
+    currentProject: {
       backgroundColor: colors.transparent,
       color: colors.text_green
+    },
+    bottomProfileContainer: {
+      flex: 1,
+      flexDirection: 'column',
+      justifyContent: 'center',
+    },
+    wrapper: {
+      flex: 1,
+      paddingVertical: 20,
+      paddingHorizontal: 20,
+    },
+    skillSectionTitle: {
+      color: colors.text_white
+    },
+    skillsContainer: {
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      paddingLeft: 2
     }
 
 });

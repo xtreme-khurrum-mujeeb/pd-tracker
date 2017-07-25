@@ -8,3 +8,4 @@ export * from './TopCard';
 export * from './ProfileImage';
 export * from './IconButton';
 export * from './Title';
+export * from './Pill';

@@ -16,7 +16,7 @@ export default StyleSheet.create({
     fontFamily
   },
   h4: {
-    fontSize: 18,
+    fontSize: 14,
     fontFamily
   },
   fontFamily: {
