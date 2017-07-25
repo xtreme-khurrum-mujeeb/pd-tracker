@@ -13,11 +13,11 @@ const InputWithImage = ({
   secureTextEntry,
   imageSource
 }) => {
-const {
-    input,
-    inputWrap,
-    iconWrap,
-    iconStyle
+  const {
+      input,
+      inputWrap,
+      iconWrap,
+      iconStyle
    } = styles;
 
   return (

@@ -21,7 +21,7 @@ const RouterComponent = () => (
         titleStyle={styles.navBarTitleStyle}
         leftButtonIconStyle={styles.navBarIconStyle}
       >
-        <Scene key="userSkills" component={UserSkills} initial />
+        <Scene key="userSkills" component={UserSkills} panHandlers={null} initial />
       </Scene>
     </Router>
   );

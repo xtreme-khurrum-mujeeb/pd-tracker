@@ -5,3 +5,6 @@ export * from './InputWithImage';
 export * from './LargeButton';
 export * from './Spinner';
 export * from './TopCard';
+export * from './ProfileImage';
+export * from './IconButton';
+export * from './Title';

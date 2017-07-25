@@ -83,10 +83,10 @@ export class LoginForm extends Component {
 
   renderLoginView() {
     return (
-      <View style={styles.container}>
+      <View style={localStyles.container}>
         {this.displayErrorMessage()}
         {this.displaySpinner()}
-        <View style={styles.wrapper}>
+        <View style={localStyles.wrapper}>
              <InputWithImage
                onChangeText={this.onEmailChange.bind(this)}
                value={this.props.email}
@@ -118,10 +118,10 @@ export class LoginForm extends Component {
     return (
        <Background>
          <TopCard>
-           <View style={styles.topImageContainer}>
+           <View style={localStyles.topImageContainer}>
              <Image
              source={require('../assets/images/Oval.png')}
-             style={styles.topImageStyle}
+             style={localStyles.topImageStyle}
              />
           </View>
         </TopCard>
@@ -133,7 +133,7 @@ export class LoginForm extends Component {
  }
 }
 
-const styles = StyleSheet.create({
+const localStyles = StyleSheet.create({
     container: {
       flex: 1,
       flexDirection: 'column',

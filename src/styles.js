@@ -19,17 +19,7 @@ export default StyleSheet.create({
     fontSize: 18,
     fontFamily
   },
-  titleContainer: {
-    flex: 0.20,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  titleStyle: {
-    backgroundColor: 'transparent',
-    fontFamily,
-    fontSize: 24,
-    color: '#008774',
-    fontWeight: '300'
+  fontFamily: {
+    fontFamily
   }
 });
