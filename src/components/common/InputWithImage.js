@@ -5,6 +5,8 @@ import {
   Image,
   StyleSheet,
  } from 'react-native';
+ import colors from '../../colors';
+ import styles from '../../styles';
 
 const InputWithImage = ({
   value,
@@ -18,7 +20,7 @@ const InputWithImage = ({
       inputWrap,
       iconWrap,
       iconStyle
-   } = styles;
+   } = localStyles;
 
   return (
     <View style={inputWrap}>
@@ -33,7 +35,7 @@ const InputWithImage = ({
           secureTextEntry={secureTextEntry}
           placeholder={placeholder}
           autoCorrect={false}
-          style={input}
+          style={[input, styles.h3]}
           value={value}
           onChangeText={onChangeText}
           placeholderTextColor="#F3EFEF"
@@ -44,7 +46,7 @@ const InputWithImage = ({
   );
 };
 
-const styles = StyleSheet.create({
+const localStyles = StyleSheet.create({
   inputWrap: {
     flexDirection: 'row',
     marginVertical: 10,
@@ -64,10 +66,8 @@ const styles = StyleSheet.create({
    flex: 1,
    paddingHorizontal: 10,
    borderBottomWidth: 1,
-   borderBottomColor: 'white',
-   color: 'white',
-   fontFamily: 'Avenir Next',
-   fontSize: 20,
+   borderBottomColor: colors.pure_white,
+   color: colors.pure_white
  },
 });
 
