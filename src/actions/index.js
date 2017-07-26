@@ -6,7 +6,8 @@ import {
   LOGIN_USER_SUCCESS,
   REGISTER_USER_SUCCESS,
   LOGIN_USER_FAIL,
-  PENDING
+  PENDING,
+  EMPLOYEES_FETCH_SUCCESS
 } from './types';
 
 export const emailChanged = (text) => {
@@ -53,4 +54,37 @@ const loginUserSuccess = (dispatch, user) => {
   });
 
   Actions.main({ type: 'reset' });
+};
+
+//Employee Creation Below
+export const employeeCreate = ({
+   name,
+   currentProject,
+   desiredSkills,
+   currentSkills,
+   isManager,
+   employeeList
+ }) => {
+   const { currentUser } = firebase.auth();
+   console.log('Pushing info');
+   return () => {
+     firebase.database().ref(`/users/${currentUser.uid}/`)
+      .push({ name,
+      currentProject,
+      desiredSkills,
+      currentSkills,
+      isManager,
+      employeeList });
+   };
+ };
+
+export const employeesFetch = () => {
+  console.log('In employeesFetch');
+  const { currentUser } = firebase.auth();
+  return (dispatch) => {
+    firebase.database().ref(`/users/${currentUser.uid}/`)
+      .on('child_added', snapshot => {
+        dispatch({ type: EMPLOYEES_FETCH_SUCCESS, payload: snapshot.val() });
+      });
+  };
 };

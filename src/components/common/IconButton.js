@@ -1,11 +1,12 @@
 import React from 'react';
 import { Image, StyleSheet, TouchableOpacity } from 'react-native';
 
-const IconButton = ({ imageSource, style }) => {
+const IconButton = ({ imageSource, style, onPress }) => {
   return (
     <TouchableOpacity
       style={[localStyles.settingsImageContainer, style]}
       activeOpacity={0.5}
+      onPress={onPress}
     >
      <Image
        source={imageSource}

@@ -11,14 +11,13 @@ const INITIAL_STATE = {
   password: 'test123',
   user: null,
   error: false,
-  loading: false
  };
 
 export default (state = INITIAL_STATE, action) => {
   console.log(action);
   switch (action.type) {
     case PENDING:
-      return { ...state, loading: true, error: false };
+      return { ...state, error: false };
     case EMAIL_CHANGED:
       return { ...state, email: action.payload };
     case PASSWORD_CHANGED:
@@ -26,7 +25,7 @@ export default (state = INITIAL_STATE, action) => {
     case LOGIN_USER_SUCCESS:
       return { ...state, user: action.payload, ...INITIAL_STATE };
     case LOGIN_USER_FAIL:
-      return { ...state, error: true, password: '', loading: false };
+      return { ...state, error: true, password: '' };
     default:
       return state;
   }

@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -8,6 +9,11 @@ import {
    Text,
    StatusBar,
  } from 'react-native';
+
+ import {
+   employeeCreate,
+   employeesFetch
+  } from '../actions';
 
 import {
    TopCard,
@@ -24,7 +30,34 @@ import colors from '../colors';
 
 export class UserSkills extends Component {
 
+  static propTypes = {
+    employeeCreate: PropTypes.func,
+    name: PropTypes.string,
+    currentProject: PropTypes.string,
+    desiredSkills: PropTypes.node,
+    currentSkills: PropTypes.node,
+    isManager: PropTypes.bool,
+    employeeList: PropTypes.node
+  };
+
+  componentWillMount() {
+    this.props.employeesFetch();
+  }
+
+  onSettingsPress() {
+    //this.props.employeeCreate({ name, currentProject, desiredSkills, currentSkills, isManager, employeeList });
+  }
+
+  renderPill(pillString) {
+    return (
+      <Pill key={pillString}> {pillString} </Pill>
+    );
+  }
+
   render() {
+    console.log('In render');
+    const { name, currentProject, desiredSkills, currentSkills, isManager, employeeList } = this.props.employee;
+
     return (
        <Background>
          <StatusBar hidden />
@@ -33,6 +66,7 @@ export class UserSkills extends Component {
            <IconButton
              imageSource={require('../assets/images/settings.png')}
              style={{ alignSelf: 'flex-end' }}
+             onPress={this.onSettingsPress.bind(this)}
            />
            <View style={localStyles.topProfileContainer}>
              <ProfileImage source={require('../assets/images/profile.png')} />
@@ -41,7 +75,7 @@ export class UserSkills extends Component {
                  Current Project:
                </Text>
                <Text style={[localStyles.currentProject, styles.h3]}>
-                FordPass - iOS
+                {currentProject}
                </Text>
              </View>
           </View>
@@ -51,21 +85,19 @@ export class UserSkills extends Component {
           <View style={localStyles.bottomProfileContainer} >
             <View style={localStyles.wrapper} >
               <View style={{ flex: 0.5 }}>
-                <Text style={[styles.h1, localStyles.skillSectionTitle]}> Desired Skills </Text>
+                <Text style={[styles.h1, localStyles.skillSectionTitle]}>
+                   Desired Skills
+                 </Text>
                 <View style={localStyles.skillsContainer}>
-                  <Pill> iOS </Pill>
-                  <Pill> Javascript </Pill>
-                  <Pill> Consulting </Pill>
-                  <Pill> React Native </Pill>
-                  <Pill> Angular JS </Pill>
+                  {desiredSkills.map((skill) => this.renderPill(skill))}
                 </View>
               </View>
               <View style={{ flex: 0.5 }}>
-                <Text style={[styles.h1, localStyles.skillSectionTitle]}> Current Skills </Text>
+                <Text style={[styles.h1, localStyles.skillSectionTitle]}>
+                   Current Skills
+                </Text>
                   <View style={localStyles.skillsContainer}>
-                    <Pill> iOS </Pill>
-                    <Pill> Exploratory Testing </Pill>
-                    <Pill> EarlGrey  </Pill>
+                  {currentSkills.map((skill) => this.renderPill(skill))}
                   </View>
               </View>
             </View>
@@ -119,4 +151,12 @@ const localStyles = StyleSheet.create({
 
 });
 
-export default UserSkills;
+const mapStateToProps = state => {
+  const employee = state.employee;
+  return { employee };
+};
+
+export default connect(mapStateToProps, {
+  employeeCreate,
+  employeesFetch
+})(UserSkills);
