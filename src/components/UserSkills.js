@@ -22,6 +22,7 @@ import {
    ProfileImage,
    IconButton,
    Title,
+   Spinner,
    Pill
   } from './common';
 
@@ -48,6 +49,14 @@ export class UserSkills extends Component {
     //this.props.employeeCreate({ name, currentProject, desiredSkills, currentSkills, isManager, employeeList });
   }
 
+  displaySpinner() {
+    if (this.props.loading) {
+      return (
+        <Spinner />
+      );
+    }
+  }
+
   renderPill(pillString) {
     return (
       <Pill key={pillString}> {pillString} </Pill>
@@ -56,7 +65,14 @@ export class UserSkills extends Component {
 
   render() {
     console.log('In render');
-    const { name, currentProject, desiredSkills, currentSkills, isManager, employeeList } = this.props.employee;
+    const {
+      name,
+      currentProject,
+      desiredSkills,
+      currentSkills,
+      isManager,
+      employeeList
+    } = this.props.employee;
 
     return (
        <Background>
@@ -102,8 +118,8 @@ export class UserSkills extends Component {
               </View>
             </View>
           </View>
-
         </BottomCard>
+        {this.displaySpinner()}
       </Background>
    );
  }
@@ -152,8 +168,11 @@ const localStyles = StyleSheet.create({
 });
 
 const mapStateToProps = state => {
-  const employee = state.employee;
-  return { employee };
+  //const employee = state.employee;
+  return {
+    employee: state.employee,
+    loading: state.network.loading
+  };
 };
 
 export default connect(mapStateToProps, {

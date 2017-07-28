@@ -5,3 +5,4 @@ export const REGISTER_USER_SUCCESS = 'register_user_success';
 export const LOGIN_USER_FAIL = 'login_user_fail';
 export const PENDING = 'pending';
 export const EMPLOYEES_FETCH_SUCCESS = 'employees_fetch_succcess';
+export const COMPLETE = 'complete';

@@ -1,7 +1,8 @@
 import {
   LOGIN_USER_SUCCESS,
   LOGIN_USER_FAIL,
-  PENDING
+  PENDING,
+  COMPLETE
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -13,6 +14,8 @@ export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case PENDING:
       return { loading: true };
+    case COMPLETE:
+      return { loading: false };
     case LOGIN_USER_SUCCESS:
       return { ...INITIAL_STATE };
     case LOGIN_USER_FAIL:

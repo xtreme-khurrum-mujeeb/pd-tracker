@@ -85,7 +85,6 @@ export class LoginForm extends Component {
     return (
       <View style={localStyles.container}>
         {this.displayErrorMessage()}
-        {this.displaySpinner()}
         <View style={localStyles.wrapper}>
              <InputWithImage
                onChangeText={this.onEmailChange.bind(this)}
@@ -128,6 +127,7 @@ export class LoginForm extends Component {
          <BottomCard>
            {this.renderLoginView()}
         </BottomCard>
+        {this.displaySpinner()}
       </Background>
    );
  }

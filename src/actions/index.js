@@ -7,7 +7,8 @@ import {
   REGISTER_USER_SUCCESS,
   LOGIN_USER_FAIL,
   PENDING,
-  EMPLOYEES_FETCH_SUCCESS
+  EMPLOYEES_FETCH_SUCCESS,
+  COMPLETE
 } from './types';
 
 export const emailChanged = (text) => {
@@ -82,9 +83,11 @@ export const employeesFetch = () => {
   console.log('In employeesFetch');
   const { currentUser } = firebase.auth();
   return (dispatch) => {
+    dispatch({ type: PENDING });
     firebase.database().ref(`/users/${currentUser.uid}/`)
       .on('child_added', snapshot => {
         dispatch({ type: EMPLOYEES_FETCH_SUCCESS, payload: snapshot.val() });
+        dispatch({ type: COMPLETE });
       });
   };
 };

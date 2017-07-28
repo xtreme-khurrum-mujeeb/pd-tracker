@@ -3,6 +3,7 @@ const colors = {
   transparent: 'transparent',
   text_white: '#f7f7f7',
   pure_white: '#ffffff',
+  background_green: '#295f4888',
 
   meh_yellow: '#fec722',
   sad_red: '#e34e40',
