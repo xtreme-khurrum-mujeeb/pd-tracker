@@ -6,3 +6,6 @@ export const LOGIN_USER_FAIL = 'login_user_fail';
 export const PENDING = 'pending';
 export const EMPLOYEES_FETCH_SUCCESS = 'employees_fetch_succcess';
 export const COMPLETE = 'complete';
+export const REG_EMAIL_CHANGED = 'reg_email_changed';
+export const REG_PASSWORD_CHANGED = 'reg_password_changed';
+export const REG_CONFIRM_PASSWORD_CHANGED = 'reg_confirm_password_changed';

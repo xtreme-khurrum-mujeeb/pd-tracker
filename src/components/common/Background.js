@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Image } from 'react-native';
+import { View, StyleSheet, Image, StatusBar } from 'react-native';
 
 const Background = (props) => {
   return (
@@ -7,6 +7,7 @@ const Background = (props) => {
       source={require('../../assets/images/Background.png')}
       style={styles.backgroundStyle}
     >
+    <StatusBar hidden />
       {props.children}
     </Image>
       );

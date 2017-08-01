@@ -18,15 +18,13 @@ const IconButton = ({ imageSource, style, onPress }) => {
 
 const localStyles = StyleSheet.create({
   settingsImageContainer: {
-    flex: 0.10,
-    width: 25,
-    flexDirection: 'row',
     marginHorizontal: '5%'
   },
   settingsImageStyle: {
     width: 25,
     height: 25,
     resizeMode: 'contain',
+
   },
 });
 

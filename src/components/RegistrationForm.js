@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
+
 import {
    View,
    StyleSheet,
@@ -10,9 +11,9 @@ import {
  } from 'react-native';
 
 import {
-  emailChanged,
-  passwordChanged,
-  loginUser,
+  regEmailChanged,
+  regPasswordChanged,
+  regConfirmPasswordChanged,
   registerUser
  } from '../actions';
 
@@ -23,45 +24,44 @@ import {
    InputWithImage,
    LargeButton,
    ErrorMessage,
-   Spinner
+   Spinner,
+   Title,
+   IconButton
   } from './common';
 
 import strings from '../strings';
+import colors from '../colors';
 
 const userIcon = require('../assets/images/user.png');
 const passwordIcon = require('../assets/images/padlock.png');
 
-export class LoginForm extends Component {
+export class RegistrationForm extends Component {
 
   static propTypes = {
-    emailChanged: PropTypes.func,
-    passwordChanged: PropTypes.func,
-    loginUser: PropTypes.func,
-    registerUser: PropTypes.func,
-    email: PropTypes.string,
-    password: PropTypes.string,
-    error: PropTypes.bool,
-    loading: PropTypes.bool
   };
 
-  onEmailChange(text) {
-    this.props.emailChanged(text);
+  onRegEmailChange(text) {
+    this.props.regEmailChanged(text);
   }
 
-  onPasswordChange(text) {
-    this.props.passwordChanged(text);
+  onRegPasswordChange(text) {
+    this.props.regPasswordChanged(text);
   }
 
-  onLoginPress() {
+  onRegConfirmPasswordChange(text) {
+    this.props.regConfirmPasswordChanged(text);
+  }
+
+  onRegisterPress() {
     const { email, password } = this.props;
 
     Keyboard.dismiss();
 
-    this.props.loginUser({ email, password });
+    this.props.registerUser({ email, password });
   }
 
-  onRegisterPress() {
-    Actions.registration();
+  onBackPress() {
+    Actions.pop();
   }
 
   displayErrorMessage() {
@@ -86,27 +86,27 @@ export class LoginForm extends Component {
         {this.displayErrorMessage()}
         <View style={localStyles.wrapper}>
              <InputWithImage
-               onChangeText={this.onEmailChange.bind(this)}
+               onChangeText={this.onRegEmailChange.bind(this)}
                value={this.props.email}
-               placeholder="Username"
+               placeholder="Email"
                imageSource={userIcon}
              />
              <InputWithImage
                secureTextEntry
-               onChangeText={this.onPasswordChange.bind(this)}
+               onChangeText={this.onRegPasswordChange.bind(this)}
                value={this.props.password}
                placeholder="Password"
                imageSource={passwordIcon}
                defaultValue="test123"
              />
-           <LargeButton
-             name='Sign In'
-             onPress={this.onLoginPress.bind(this)}
-           />
-           <LargeButton
-             name='Register'
-             onPress={this.onRegisterPress.bind(this)}
-           />
+             <InputWithImage
+               secureTextEntry
+               onChangeText={this.onRegConfirmPasswordChange.bind(this)}
+               value={this.props.confirmPassword}
+               placeholder="Confirm Password"
+               imageSource={passwordIcon}
+               defaultValue="test123"
+             />
        </View>
      </View>
   );
@@ -115,16 +115,24 @@ export class LoginForm extends Component {
   render() {
     return (
        <Background>
-         <TopCard>
-           <View style={localStyles.topImageContainer}>
-             <Image
-             source={require('../assets/images/Oval.png')}
-             style={localStyles.topImageStyle}
-             />
-          </View>
-        </TopCard>
          <BottomCard>
+           <Title textColor={colors.text_white}> Register </Title>
+             <View style={localStyles.iconContainer}>
+               <IconButton
+                 imageSource={require('../assets/images/arrow-left.png')}
+                 style={{  }}
+                 onPress={this.onBackPress.bind(this)}
+               />
+           </View>
            {this.renderLoginView()}
+        </BottomCard>
+        <BottomCard>
+          <View style={localStyles.wrapper}>
+          <LargeButton
+            name='Submit'
+            onPress={this.onRegisterPress.bind(this)}
+          />
+          </View>
         </BottomCard>
         {this.displaySpinner()}
       </Background>
@@ -152,22 +160,28 @@ const localStyles = StyleSheet.create({
       width: 165,
       height: 165,
       resizeMode: 'contain',
-  }
+  },
+    iconContainer: {
+      flex: 0.20,
+      flexDirection: 'row',
+      justifyContent: 'space-between'
+  },
 
 });
 
 const mapStateToProps = state => {
   return {
-    email: state.auth.email,
-    password: state.auth.password,
-    error: state.auth.error,
+    email: state.reg.email,
+    password: state.reg.password,
+    confirmPassword: state.reg.confirmPassword,
+    error: state.reg.error,
     loading: state.network.loading
   };
 };
 
 export default connect(mapStateToProps, {
-  emailChanged,
-  passwordChanged,
-  loginUser,
+  regEmailChanged,
+  regPasswordChanged,
+  regConfirmPasswordChanged,
   registerUser
-})(LoginForm);
+})(RegistrationForm);

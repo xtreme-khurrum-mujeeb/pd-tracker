@@ -2,6 +2,7 @@ import React from 'react';
 import { Scene, Router, Actions } from 'react-native-router-flux';
 import LoginForm from '../components/LoginForm';
 import UserSkills from '../components/UserSkills';
+import RegistrationForm from '../components/RegistrationForm';
 
 const RouterComponent = () => (
     <Router >
@@ -11,7 +12,8 @@ const RouterComponent = () => (
         navigationBarStyle={styles.navBarStyle}
         titleStyle={styles.navBarTitleStyle}
       >
-        <Scene key="login" component={LoginForm} title='Login' intial />
+        <Scene key="login" component={LoginForm} title='Login' initial />
+        <Scene key="registration" component={RegistrationForm} title='Registration' />
       </Scene>
 
       <Scene

@@ -7,7 +7,6 @@ import {
    View,
    StyleSheet,
    Text,
-   StatusBar,
  } from 'react-native';
 
  import {
@@ -49,6 +48,10 @@ export class UserSkills extends Component {
     //this.props.employeeCreate({ name, currentProject, desiredSkills, currentSkills, isManager, employeeList });
   }
 
+  isManager() {
+    return this.props.employee.isManager;
+  }
+
   displaySpinner() {
     if (this.props.loading) {
       return (
@@ -63,6 +66,18 @@ export class UserSkills extends Component {
     );
   }
 
+  renderEmployeesIcon() {
+    if (this.isManager()) {
+    return (
+      <IconButton
+        imageSource={require('../assets/images/employees.png')}
+        style={{ alignSelf: 'flex-start' }}
+        onPress={this.onSettingsPress.bind(this)}
+      />
+    );
+  }
+  }
+
   render() {
     console.log('In render');
     const {
@@ -70,20 +85,21 @@ export class UserSkills extends Component {
       currentProject,
       desiredSkills,
       currentSkills,
-      isManager,
       employeeList
     } = this.props.employee;
 
     return (
        <Background>
-         <StatusBar hidden />
          <TopCard>
            <Title> Skills </Title>
-           <IconButton
-             imageSource={require('../assets/images/settings.png')}
-             style={{ alignSelf: 'flex-end' }}
-             onPress={this.onSettingsPress.bind(this)}
-           />
+           <View style={localStyles.iconContainer}>
+             <IconButton
+               imageSource={require('../assets/images/settings.png')}
+               style={{  }}
+               onPress={this.onSettingsPress.bind(this)}
+             />
+           {this.renderEmployeesIcon()}
+          </View>
            <View style={localStyles.topProfileContainer}>
              <ProfileImage source={require('../assets/images/profile.png')} />
              <View style={localStyles.currentProjectContainer}>
@@ -151,6 +167,11 @@ const localStyles = StyleSheet.create({
       flexDirection: 'column',
       justifyContent: 'center',
     },
+    iconContainer: {
+      flex: 0.20,
+      flexDirection: 'row-reverse',
+      justifyContent: 'space-between'
+    },
     wrapper: {
       flex: 1,
       paddingVertical: 20,
@@ -162,7 +183,6 @@ const localStyles = StyleSheet.create({
     skillsContainer: {
       flexDirection: 'row',
       flexWrap: 'wrap',
-      paddingLeft: 2
     }
 
 });
