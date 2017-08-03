@@ -2,13 +2,16 @@ import {
   REG_EMAIL_CHANGED,
   REG_PASSWORD_CHANGED,
   REG_CONFIRM_PASSWORD_CHANGED,
-  PENDING
+  PENDING,
+  REG_PASSWORD_MATCH,
+  REG_PASSWORD_UNMATCH
 } from '../actions/types';
 
 const INITIAL_STATE = {
   email: '',
   password: '',
   confirmPassword: '',
+  passwordMatch: true,
   user: null,
   error: false,
  };
@@ -24,10 +27,10 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, password: action.payload };
     case REG_CONFIRM_PASSWORD_CHANGED:
         return { ...state, confirmPassword: action.payload };
-    // case LOGIN_USER_SUCCESS:
-    //   return { ...state, user: action.payload, ...INITIAL_STATE };
-    // case LOGIN_USER_FAIL:
-    //   return { ...state, error: true, password: '' };
+    case REG_PASSWORD_MATCH:
+      return { ...state, passwordMatch: true };
+    case REG_PASSWORD_UNMATCH:
+        return { ...state, passwordMatch: false };
     default:
       return state;
   }

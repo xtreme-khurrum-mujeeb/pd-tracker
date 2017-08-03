@@ -41,6 +41,7 @@ export class UserSkills extends Component {
   };
 
   componentWillMount() {
+    console.log('Fetching user');
     this.props.employeesFetch();
   }
 

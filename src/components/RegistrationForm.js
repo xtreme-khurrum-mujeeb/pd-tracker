@@ -14,7 +14,9 @@ import {
   regEmailChanged,
   regPasswordChanged,
   regConfirmPasswordChanged,
-  registerUser
+  registerUser,
+  comparePasswords,
+  employeeCreate
  } from '../actions';
 
 import {
@@ -58,16 +60,22 @@ export class RegistrationForm extends Component {
     Keyboard.dismiss();
 
     this.props.registerUser({ email, password });
+    
+    this.props.employeeCreate({});
   }
 
   onBackPress() {
     Actions.pop();
   }
 
+  comparePasswords() {
+    this.props.comparePasswords(this.props.password, this.props.confirmPassword);
+  }
+
   displayErrorMessage() {
-    if (this.props.error) {
+    if (!this.props.passwordMatch) {
       return (
-        <ErrorMessage message={strings.invalidCredentials} />
+        <ErrorMessage message={strings.passwordNotMatching} />
       );
     }
   }
@@ -84,6 +92,7 @@ export class RegistrationForm extends Component {
     return (
       <View style={localStyles.container}>
         {this.displayErrorMessage()}
+        {this.comparePasswords()}
         <View style={localStyles.wrapper}>
              <InputWithImage
                onChangeText={this.onRegEmailChange.bind(this)}
@@ -175,6 +184,7 @@ const mapStateToProps = state => {
     password: state.reg.password,
     confirmPassword: state.reg.confirmPassword,
     error: state.reg.error,
+    passwordMatch: state.reg.passwordMatch,
     loading: state.network.loading
   };
 };
@@ -183,5 +193,7 @@ export default connect(mapStateToProps, {
   regEmailChanged,
   regPasswordChanged,
   regConfirmPasswordChanged,
-  registerUser
+  registerUser,
+  comparePasswords,
+  employeeCreate
 })(RegistrationForm);

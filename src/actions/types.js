@@ -9,3 +9,5 @@ export const COMPLETE = 'complete';
 export const REG_EMAIL_CHANGED = 'reg_email_changed';
 export const REG_PASSWORD_CHANGED = 'reg_password_changed';
 export const REG_CONFIRM_PASSWORD_CHANGED = 'reg_confirm_password_changed';
+export const REG_PASSWORD_MATCH = 'reg_password_match';
+export const REG_PASSWORD_UNMATCH = 'reg_password_unmatch';
