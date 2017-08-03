@@ -81,7 +81,7 @@ export const registerUser = ({ email, password }) => {
     .then(user => {
       dispatch({ type: REGISTER_USER_SUCCESS, payload: user });
       dispatch({ type: COMPLETE });
-      loginUserSuccess(dispatch, user);
+      registerUserSuccess(dispatch, user);
     })
     .catch(() => loginUserFail(dispatch));
   };
@@ -96,8 +96,15 @@ const loginUserSuccess = (dispatch, user) => {
     type: LOGIN_USER_SUCCESS,
     payload: user
   });
-  employeeCreate({});
   Actions.main({ type: 'reset' });
+};
+
+const registerUserSuccess = (dispatch, user) => {
+  dispatch({
+    type: LOGIN_USER_SUCCESS,
+    payload: user
+  });
+  employeeCreate({});
 };
 
 //Employee Creation Below
@@ -114,14 +121,18 @@ export const employeeCreate = ({
    console.log(currentProject);
    console.log(name);
    console.log(`In create - UserID: ${currentUser.uid}`);
-   return () => {
+   return (dispatch) => {
      firebase.database().ref(`/users/${currentUser.uid}/`)
       .push({ name,
       currentProject,
       desiredSkills,
       currentSkills,
       isManager,
-      employeeList });
+      employeeList })
+      .then(() => {
+        dispatch({ type: 'employee_create' });
+        Actions.main({ type: 'reset' });
+      });
    };
  };
 
